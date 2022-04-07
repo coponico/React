@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    justify-content: center;
+    ul {
+        display: flex;
+        flex-flow: nowrap;
+        li {
+            padding: 20px;
+        }
+    }
+}

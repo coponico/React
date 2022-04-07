@@ -1,2 +1,8 @@
-* {
-  width: 240px; }
+header {
+  display: flex;
+  justify-content: center; }
+  header ul {
+    display: flex;
+    flex-flow: nowrap; }
+    header ul li {
+      padding: 20px; }
