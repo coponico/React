@@ -4,7 +4,7 @@ body {
 
 header {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 25% 25% 20% 15% 15%;
   background-color: rgba(42, 253, 42, 0.648);
   width: 100%;
   height: 75px;
@@ -19,13 +19,10 @@ header {
     justify-content: space-around;
     flex-flow: nowrap;
     grid-column: 4/5; }
-    header ul li {
-      padding: 15px;
-      border-radius: 15px;
-      background-color: rgba(238, 246, 13, 0.936); }
-      header ul li a {
-        color: black;
-        text-decoration: none;
-        padding: 3px; }
-      header ul li:hover {
-        box-shadow: 0 0 0 1px #000000; }
+    header ul li a {
+      color: black;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-decoration: none;
+      padding: 3px; }
+    header ul li:hover a {
+      color: #b50f0f; }
