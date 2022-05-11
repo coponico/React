@@ -79,10 +79,6 @@ function ItemListContainer({ greeting }) {
     getProducts(categoryId)
       .then((res) => {
         setProducts(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Ocurrio un error, revisa la consola capo");
       });
   }, [categoryId]);
 

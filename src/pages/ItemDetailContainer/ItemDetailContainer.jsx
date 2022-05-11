@@ -70,10 +70,6 @@ function ItemDetailContainer() {
       getItem(id)
           .then(res => {
               setItem(res);
-          })
-          .catch(err => {
-              console.log(err);
-              alert('Ocurrio un error, revisar la consola!');
           });
   }, [id]);
 
