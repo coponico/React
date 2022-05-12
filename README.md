@@ -11,7 +11,7 @@ FitnessReact es una tienda virtual de suplementos para entreno.
 Clonar el proyecto y entrar en el directorio:
 ```bash
 git clone https://github.com/coponico/React-Nicolas-Joli
-cd coderhouse-desafio-ecommerce
+cd React-Nicolas-Joli
 ```
 Instalar la versión de npm recomendada
 ```bash
