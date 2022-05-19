@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import CartContext from '../../store/CartContext';
+import Bubble from '../Bubble/Bubble';
 function Item({ item }) {
+  const cartCtx = useContext(CartContext);
   return (
     <div className="card">
       <div className="header">{item?.title}</div>
@@ -15,8 +18,11 @@ function Item({ item }) {
         <Link to={'/item/' + item?.id}>
               <button>Ver Detalle</button>
             </Link>
+            <div className='bubble-add'>
+              <Bubble isButton onBubbleClick={() => cartCtx.addProduct({quantity: 1, ...item})}>+</Bubble>
+            </div>
       </div>
-      <div className="footer">{item?.price}</div>
+      <div className='footer'>${ item?.price }</div>
     </div>
   );
 }

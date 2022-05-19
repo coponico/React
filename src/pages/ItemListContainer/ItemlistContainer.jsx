@@ -8,7 +8,7 @@ function getProducts(category) {
       {
         id: 1,
         title: "Creatina Star Nutrition",
-        price: "$2500",
+        price: "2500",
         stock: "2",
         category: "creatina",
         imageUrl:
@@ -17,7 +17,7 @@ function getProducts(category) {
       {
         id: 2,
         title: "Creatina Universal",
-        price: "$1500",
+        price: "1500",
         stock: "2",
         category: "creatina",
         imageUrl:
@@ -26,7 +26,7 @@ function getProducts(category) {
       {
         id: 3,
         title: "Creatina MuscleTech",
-        price: "$1000",
+        price: "1000",
         stock: "2",
         category: "creatina",
         imageUrl:
@@ -35,7 +35,7 @@ function getProducts(category) {
       {
         id: 4,
         title: "Creatina GenTech",
-        price: "$2350",
+        price: "2350",
         stock: "2",
         category: "creatina",
         imageUrl:
@@ -44,7 +44,7 @@ function getProducts(category) {
       {
         id: 5,
         title: "Proteina ENA True Made",
-        price: "$3100",
+        price: "3100",
         stock: "4",
         category: "proteina",
         imageUrl:
@@ -53,7 +53,7 @@ function getProducts(category) {
       {
         id: 6,
         title: "Pre-Entreno PRE-WORKOUT",
-        price: "$2765",
+        price: "2765",
         stock: "1",
         category: "preentreno",
         imageUrl:
@@ -69,9 +69,6 @@ function getProducts(category) {
 }
 
 function ItemListContainer({ greeting }) {
-  // function dummy() {
-  //   console.log('dummy prop function');
-  // }
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
 
