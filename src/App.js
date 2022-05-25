@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import ItemListContainer from './pages/ItemListContainer/ItemlistContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import Cart from './pages/Cart/cart';
+import Checkout from './components/Checkout/Checkout';
 // import { ItemCount } from './components/ItemCount/ItemCount';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/cart' element={<Cart/>} />
         <Route path='/category/:categoryId' element={<ItemListContainer/>} />
         <Route path='/item/:id' element={<ItemDetailContainer/>} />
+        <Route path='/checkout' element={<Checkout/>}/>
       </Routes>
     </div>
 
