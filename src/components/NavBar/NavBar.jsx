@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
     return (
-<header classname="header">
+<header className="header">
     <p>FitnessReact</p>
     <Link to='/'>
                 <img

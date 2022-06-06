@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { useParams } from 'react-router-dom';
 
+
 function getItem(id) {
   const myPromise = new Promise((resolve, reject) => {
       const productsList = [

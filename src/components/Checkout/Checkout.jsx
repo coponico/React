@@ -2,73 +2,116 @@ import React, {useState, useContext} from 'react'
 import CartContext from '../../store/CartContext'
 import db from '../../services/firebase'
 import {collection, addDoc} from 'firebase/firestore'
+import Spinner from '../Spinner/Spinner'
 
 
 const Checkout = () => {
 
-    const cartCtx = useContext(CartContext)
+    const {cart,getTotal,clear}= useContext(CartContext)
 
-    const [buyer, setBuyer] = useState({
-        Nombre:"",
-        Email:"",
-        Telefono:""
-    })
-    const [orderId, setOrderId] = useState()
     const [load, setLoad] = useState(false)
+    const [orderID, setOrderID] = useState()
+    
+    const [buyer, setBuyer] = useState({
+        Nombre:'',
+        Email:'',
+        Telefono:''
+    })
+
+    const {Nombre, Email, Telefono} = buyer
 
     const handleInputChange = (e) => {
-        setBuyer({
+        setBuyer(({
             ...buyer,
-            [e.target.name] : e.target.value
-        })
+            [e.target.name]:e.target.value
+        }))
+    }
+
+    const generateOrder = async(data) => {
+        setLoad(true)
+        try {
+            const col = collection(db,"Orders")
+            const order = await addDoc(col,data) 
+            setOrderID(order.id)
+            clear()
+            setLoad(false)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const date = new Date();
-        const total = cartCtx.totalAmount();
-        const items = cartCtx.products.map(item => {return {id:item.id, title:item.title, price: item.price, amount: item.quantity}})
-        const dataOrder = {buyer, items, date, total}
-        generateOrder(dataOrder)
+        e.preventDefault()
+        const dia = new Date()
+        const items = cart.map(e=> {return {id:e.id,title:e.name,price:e.price,amount:e.amount}})        
+        const total = getTotal()
+        const data = {buyer,items,dia,total}
+        console.log("data",data)  
+        generateOrder(data)
+        
+        
     }
+    
 
-    const generateOrder = async (dataOrder) => {
-        setLoad(true)
-        try{
-            const col = collection(db, "orders")
-            const order = await addDoc(col, dataOrder)
-            setOrderId(order.id)
-            cartCtx.emptyCart()
-            setLoad(false)
-        } catch(err){}
-    }
+    return (
+        <>
+            <h1>Finalizando Compra</h1>
+            <hr />
+            
+            {load ? <Spinner />
+                : (!orderID&&<div>
+                    <h4>Completar Datos:</h4>
+                    <br />
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name="Nombre"
+                            placeholder="Nombre"
+                            value={Nombre}
+                            onChange={handleInputChange}
+                            required
+                        />
+                        <br />
+                        <input
+                            type="email"
+                            name="Email"
+                            placeholder="Email"
+                            value={Email}
+                            onChange={handleInputChange}
+                            required
+                        />
+                        <br />
+                        <input
+                            type="number"
+                            name="Telefono"
+                            placeholder="Telefono"
+                            value={Telefono}
+                            onChange={handleInputChange}
+                            required
+                        />
+                        <br /><br />
+                        <input
+                            type="submit"
+                            value="Finalizar Compra"
+                            className="btn btn-success"
+                        />
+                    </form>
+                </div>)
+            }
 
+            <div>
+            {
+                orderID&&(
+                    <div>
+                        <h4>Compra Finalizada con Exito</h4>
+                        <h4>{`Su código de compra es: ${orderID}`}</h4>
+                    </div>
+                    )
+            }
+            </div>
 
-  return (  
-    <>
-    <h2>Finalizando la compra</h2>
-    <h3>Completa tus datos</h3>
-    {
-    load? 
-        <div>Cargando</div>
-        :(!orderId && <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="Nombre" placeholder="Nombre" onChange={handleInputChange} required/>
-                <input type="email" name="Email" placeholder="Email" onChange={handleInputChange} required/>
-                <input type="number" name="Telefono" placeholder="Teléfono" onChange={handleInputChange} required/>
-                <input type="submit" value="Finalizar Compra" className="btn-primary"onChange={handleInputChange} required/>
-            </form>
-        </div>)
-    }
-    {
-        orderId && 
-        <div>
-            <h3>Compra finalizada</h3>
-            <h4>{`Número de compra: ${orderId}`}</h4>
-        </div>
-    }
-    </>
-  )
+        </>
+    )
 }
 
-export default Checkout 
+export default Checkout;
