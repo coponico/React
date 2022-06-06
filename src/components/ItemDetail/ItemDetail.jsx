@@ -12,7 +12,7 @@ function ItemDetail({ item }) {
     <div className="item-detail">
       <div className="left">
         <div className="img-detail-container">
-          <img src={item?.imageUrl} alt="Imagen del producto" />
+          <img src={item?.imageUrl} alt="Imagen del producto"/>
         </div>
       </div>
       <div className="right">
@@ -20,8 +20,8 @@ function ItemDetail({ item }) {
           <h2>{item?.title}</h2>
           <p>{item?.price}</p>
           <div className="count-container">
-            <ItemCount initial={0} stock={item.stock} onAdd={addHandler} />
-            {cartCtx.isInCart(item.id) &&
+            <ItemCount initial={0} stock={item?.stock} onAdd={addHandler} />
+            {cartCtx.isInCart(item?.id) &&
                         <button className='button-brown mt'>
                             <Link to='/cart'>
                                 Terminar compra ({ cartCtx.getCartQuantity() } items)
