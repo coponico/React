@@ -1,11 +1,12 @@
 import React, {useState, useContext} from 'react'
 import CartContext from '../../store/CartContext'
-import db from '../../services/firebase'
-import {collection, addDoc} from 'firebase/firestore'
-import Spinner from '../Spinner/Spinner'
-
+import { collection, addDoc} from "firebase/firestore";
+import db from '../../services/firebase';
+import { Link } from "react-router-dom";
+import Spinner from '../Spinner/Spinner';
 
 const Checkout = () => {
+    // { buyer: { name, phone, email }, items: [{ id, title, price, amount }], date, total }
 
     const {cart,getTotal,clear}= useContext(CartContext)
 
@@ -105,6 +106,7 @@ const Checkout = () => {
                     <div>
                         <h4>Compra Finalizada con Exito</h4>
                         <h4>{`Su código de compra es: ${orderID}`}</h4>
+                        <Link to="/"><h5>Realizar otra compra</h5></Link>
                     </div>
                     )
             }
@@ -114,4 +116,4 @@ const Checkout = () => {
     )
 }
 
-export default Checkout;
+export default Checkout
