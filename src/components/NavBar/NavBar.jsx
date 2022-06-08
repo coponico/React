@@ -4,12 +4,14 @@ import { Link, NavLink } from 'react-router-dom';
 function NavBar() {
     return (
 <header className="header">
-    <p>FitnessReact</p>
     <Link to='/'>
-                <img
-                    src='../../../public/logo.png'
+        <div>
+    <p className="textoLogo">FitnessReact</p>
+                <img className="logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/800px-React.svg.png"
                     alt="FitnessReact"
                 />
+                </div>
             </Link>
 <ul>
 <li><NavLink to='/category/creatina' className={nav => nav.isActive ? 'nav-active' : ''}>Creatinas</NavLink></li>

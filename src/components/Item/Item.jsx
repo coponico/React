@@ -16,7 +16,7 @@ function Item({ item }) {
           />
         </div>
         <Link to={'/item/' + item?.id}>
-              <button>Ver Detalle</button>
+              <button className='detailBtn'>Ver Detalle</button>
             </Link>
             <div className='bubble-add'>
               <Bubble isButton onBubbleClick={() => cartCtx.addProduct({quantity: 1, ...item})}>+</Bubble>

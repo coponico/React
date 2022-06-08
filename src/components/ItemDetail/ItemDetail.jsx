@@ -18,9 +18,10 @@ function ItemDetail({ item }) {
       <div className="right">
         <div className="info-container">
           <h2>{item?.title}</h2>
-          <p>{item?.price}</p>
+          <p className="item-description">{item?.description? item.description:'Producto sin descripción'}</p>
+          <p className='itemPrice'>${item?.price}</p>
           <div className="count-container">
-            <ItemCount initial={0} stock={item?.stock} onAdd={addHandler} />
+            <ItemCount initial={1} stock={item?.stock} onAdd={addHandler} />
             {cartCtx.isInCart(item?.id) &&
                         <button className='button-brown mt'>
                             <Link to='/cart'>

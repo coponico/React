@@ -2,9 +2,33 @@
 Decidí crear este comercio no dirigido a ningún emprendimiento en particular para ganar experiencia realizando el proyecto del curso de CoderHouse
 
 FitnessReact es una tienda virtual de suplementos para entreno.
+
+# **Screenshots **
+
+---
+
+### Home
+
+![App Screenshot Home](src/assets/home.png)
+
+### Productos filtrados
+
+![App Screenshot Filtro productos](src/assets/filtered.png)
+
+### Detalle productos
+
+![App Screenshot Detalle productos](src/assets/itemDetail.png)
+
+
+## **DEMO**
+
+---
+
+![Demo](src/assets/demo.gif)
+
 # Dependencias
 
-## [Creact React App](https://create-react-app.dev/)
+## [Create React App](https://create-react-app.dev/)
 ## [React Router Dom](https://v5.reactrouter.com/web/guides/quick-start)
 
 # Instalación
