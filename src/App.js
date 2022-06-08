@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar.jsx';
-import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
+import ItemListContainer from './pages/ItemListContainer/ItemlistContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import Cart from './pages/Cart/cart';
 import Checkout from './components/Checkout/Checkout';
